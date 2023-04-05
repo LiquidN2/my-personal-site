@@ -1,0 +1,36 @@
+.form {
+  flex: 0 0 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  width: 2rem;
+  height: 2rem;
+  color: var(--color-gray);
+  z-index: 1;
+
+  transform: translateX(3.5rem);
+}
+
+.input {
+  width: 90%;
+  border: none;
+  border-radius: 1rem;
+  background-color: var(--background-color-search);
+
+  padding: 1.5rem 2rem 1.5rem 4.5rem;
+
+  font-family: inherit;
+  font-size: 1.6rem;
+
+  //margin-left: -3rem;
+
+  transition: all 0.2s;
+
+  &:focus {
+    outline: none;
+    width: 100%;
+  }
+}
