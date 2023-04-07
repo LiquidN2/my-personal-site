@@ -1,0 +1,23 @@
+@use '@/styles/mixins' as *;
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-light-lighter-3);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 1rem;
+}
+
+.icon {
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+  color: var(--color-gray-lighter);
+
+  &--primary {
+    color: var(--color-primary);
+  }
+}

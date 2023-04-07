@@ -10,7 +10,7 @@ const HeaderLogo: FC = () => {
     <Link href="/" legacyBehavior>
       <a className={styles.link}>
         <FontAwesomeIcon className={styles.svg} icon={faCode} />
-        <div className={styles.text}>Hugh&apos;s Home</div>
+        <div className={styles.text}>Hugh Nguyen</div>
       </a>
     </Link>
   );

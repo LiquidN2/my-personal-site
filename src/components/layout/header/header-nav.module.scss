@@ -1,0 +1,24 @@
+@use '@/styles/mixins' as *;
+
+.container {
+  margin-right: 2rem;
+
+  @include respond(phone) {
+    flex-grow: 1;
+    margin-right: 0;
+    background-color: white;
+    padding: 4rem;
+    height: 100%;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+
+  @include respond(phone) {
+    flex-direction: column;
+    text-align: right;
+  }
+}

@@ -1,6 +1,6 @@
 import '@/styles/main.scss';
-import Header from '@/components/layout/header.component';
-import Footer from '@/components/layout/footer.component';
+import Header from '@/components/layout/header/header.component';
+import Footer from '@/components/layout/footer/footer.component';
 
 export const metadata = {
   title: 'Hugh Nguyen | Personal Site',

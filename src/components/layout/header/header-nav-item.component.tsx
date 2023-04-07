@@ -24,7 +24,7 @@ const HeaderNavItem: FC<HeaderNavItemProps> = ({ url, name }) => {
   }, [pathname, url]);
 
   return (
-    <li className={styles.container}>
+    <li className={styles.container} onClick={() => console.log('close menu?')}>
       <Link href={url} legacyBehavior>
         <a className={linkClassName}>{name}</a>
       </Link>

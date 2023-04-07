@@ -1,6 +1,14 @@
+@use '@/styles/mixins' as *;
+
 .container {
   &:not(:last-child) {
     margin-right: 2rem;
+    margin-bottom: 0;
+
+    @include respond(phone) {
+      margin-right: 0;
+      margin-bottom: 2rem;
+    }
   }
 }
 
