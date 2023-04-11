@@ -1,6 +1,8 @@
 import '@/styles/main.scss';
+
 import Header from '@/components/layout/header/header.component';
 import Footer from '@/components/layout/footer/footer.component';
+import ThemeProvider from '@/components/context/theme-provider.component';
 
 export const metadata = {
   title: 'Hugh Nguyen | Personal Site',
@@ -15,9 +17,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header />
-        {children}
-        <Footer />
+        <ThemeProvider>
+          <Header />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

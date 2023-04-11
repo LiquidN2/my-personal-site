@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useContext, useRef, useState } from 'react';
 
 import HeaderLogo from './header-logo.component';
 import HeaderSearch from './header-search.component';
@@ -8,8 +8,10 @@ import HeaderNav from './header-nav.component';
 import HeaderNavToggle from './header-nav-toggle.component';
 import HeaderNavClose from './header-nav-close.component';
 import ButtonDarkModeToggle from '@/components/ui/button-darkmode-toggle.module';
+import { Theme, ThemeContext } from '@/components/context/theme-context';
 
 import { useResponsive } from '@/hooks/useResponsive';
+import { useTheme } from '@/hooks/useTheme';
 
 import styles from './header.module.scss';
 
@@ -19,6 +21,11 @@ const Header: FC = () => {
     styles['nav-container']
   );
   const [darkModeOn, setDarkModeOn] = useState(false);
+
+  const { enableTheme } = useContext(ThemeContext);
+
+  const headerRef = useRef<HTMLDivElement | null>(null);
+
   const { respondMobile } = useResponsive();
 
   useEffect(() => {
@@ -29,8 +36,21 @@ const Header: FC = () => {
         );
   }, [hiddenNav]);
 
+  useEffect(() => {
+    if (!darkModeOn) {
+      enableTheme(Theme.Default);
+      return;
+    }
+    enableTheme(Theme.Dark);
+  }, [darkModeOn, enableTheme]);
+
+  useTheme(headerRef, {
+    default: styles.container,
+    dark: `${styles.container} ${styles['container--dark']}`,
+  });
+
   return (
-    <header className={styles.container}>
+    <header className={styles.container} ref={headerRef}>
       <div className={`${styles['inner-box']} u-container`}>
         <HeaderLogo />
         {!respondMobile && <HeaderSearch />}
