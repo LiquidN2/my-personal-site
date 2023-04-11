@@ -7,6 +7,7 @@ import HeaderSearch from './header-search.component';
 import HeaderNav from './header-nav.component';
 import HeaderNavToggle from './header-nav-toggle.component';
 import HeaderNavClose from './header-nav-close.component';
+import ButtonDarkModeToggle from '@/components/ui/button-darkmode-toggle.module';
 
 import { useResponsive } from '@/hooks/useResponsive';
 
@@ -17,6 +18,7 @@ const Header: FC = () => {
   const [navContainerClass, setNavContainerClass] = useState(
     styles['nav-container']
   );
+  const [darkModeOn, setDarkModeOn] = useState(false);
   const { respondMobile } = useResponsive();
 
   useEffect(() => {
@@ -40,6 +42,10 @@ const Header: FC = () => {
             <HeaderNavClose onClick={() => setHiddenNav(true)} />
           )}
           <HeaderNav />
+          <ButtonDarkModeToggle
+            isOn={darkModeOn}
+            onChange={() => setDarkModeOn(!darkModeOn)}
+          />
         </div>
       </div>
     </header>

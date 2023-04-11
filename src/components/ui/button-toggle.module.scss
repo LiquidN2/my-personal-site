@@ -1,0 +1,63 @@
+$transitionDuration: 0.2s;
+
+.container {
+  position: relative;
+  display: flex;
+  width: 4.5rem;
+  height: 2.6rem;
+}
+
+.checkbox {
+  display: none;
+}
+
+.slider {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: var(--color-light-lighter-3);
+  -webkit-transition: $transitionDuration;
+  transition: $transitionDuration;
+
+  &:before {
+    content: '';
+    height: 1.8rem;
+    width: 1.8rem;
+    margin-left: 0.5rem;
+    background-color: white;
+    -webkit-transition: $transitionDuration;
+    transition: $transitionDuration;
+  }
+
+  &--round {
+    border-radius: 3.4rem;
+
+    &:before {
+      border-radius: 50%;
+    }
+  }
+}
+
+.checkbox:checked + .slider {
+  background-color: var(--color-primary);
+}
+
+.checkbox:focus + .slider {
+  box-shadow: 0 0 1px var(--color-primary);
+}
+
+.checkbox:checked + .slider:before {
+  -webkit-transform: translateX(1.7rem);
+  -ms-transform: translateX(1.7rem);
+  transform: translateX(1.7rem);
+}
+
+.label {
+  margin-left: 5rem;
+}

@@ -1,0 +1,21 @@
+.icon {
+  display: inline-block;
+  position: absolute;
+  top: 0.4rem;
+  font-size: 1.2rem;
+  opacity: 1;
+  transition: opacity 0.2s;
+  user-select: none;
+
+  &--light {
+    right: 0.4rem;
+  }
+
+  &--dark {
+    left: 0.4rem;
+  }
+
+  &--hidden {
+    opacity: 0;
+  }
+}
