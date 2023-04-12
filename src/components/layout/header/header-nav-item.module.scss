@@ -23,6 +23,11 @@
     color: var(--font-color-header);
   }
 
+  &--dark:link,
+  &--dark:visited {
+    color: var(--color-light);
+  }
+
   &:hover,
   &--active {
     color: var(--color-primary) !important;
