@@ -1,3 +1,5 @@
+'use client';
+
 import { FC, useRef } from 'react';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -5,9 +7,9 @@ import { faCode } from '@fortawesome/free-solid-svg-icons';
 
 import { useTheme } from '@/hooks/useTheme';
 
-import styles from './header-logo.module.scss';
+import styles from './logo.module.scss';
 
-const HeaderLogo: FC = () => {
+const Logo: FC = () => {
   const logoTextRef = useRef<HTMLDivElement | null>(null);
 
   useTheme(logoTextRef, {
@@ -27,4 +29,4 @@ const HeaderLogo: FC = () => {
   );
 };
 
-export default HeaderLogo;
+export default Logo;

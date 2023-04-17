@@ -6,7 +6,9 @@ interface ClassNamesType {
 }
 
 export const useTheme = (
-  elementRef: MutableRefObject<HTMLElement | HTMLDivElement | null>,
+  elementRef: MutableRefObject<
+    HTMLElement | HTMLDivElement | HTMLSpanElement | null
+  >,
   classNames: ClassNamesType
 ) => {
   const { theme } = useContext(ThemeContext);

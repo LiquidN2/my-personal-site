@@ -2,7 +2,7 @@
 
 import { FC, useEffect, useContext, useRef, useState } from 'react';
 
-import HeaderLogo from './header-logo.component';
+import Logo from '@/components/ui/logo.component';
 import HeaderSearch from './header-search.component';
 import HeaderNav from './header-nav.component';
 import HeaderNavToggle from './header-nav-toggle.component';
@@ -52,7 +52,7 @@ const Header: FC = () => {
   return (
     <header className={styles.container} ref={headerRef}>
       <div className={`${styles['inner-box']} u-container`}>
-        <HeaderLogo />
+        <Logo />
         {!respondMobile && <HeaderSearch />}
         {respondMobile && (
           <HeaderNavToggle onClick={() => setHiddenNav(false)} />

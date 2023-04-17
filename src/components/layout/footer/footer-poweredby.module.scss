@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.text {
+  font-size: 1.6rem;
+
+  &--dark {
+    color: var(--color-light);
+  }
+}
