@@ -6,7 +6,8 @@
 .text {
   font-size: 1.6rem;
 
-  &--dark {
+  &--light {
+    @extend .text;
     color: var(--color-light);
   }
 }

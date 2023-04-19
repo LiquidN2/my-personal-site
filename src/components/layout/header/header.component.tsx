@@ -45,8 +45,8 @@ const Header: FC = () => {
   }, [darkModeOn, enableTheme]);
 
   useTheme(headerRef, {
-    default: styles.container,
-    dark: `${styles.container} ${styles['container--dark']}`,
+    [Theme.Default]: styles.container,
+    [Theme.Dark]: styles['container--dark'],
   });
 
   return (

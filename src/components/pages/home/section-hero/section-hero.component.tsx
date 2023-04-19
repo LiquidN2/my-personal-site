@@ -14,8 +14,8 @@ const SectionHero: FC = () => {
   const containerRef = useRef<HTMLElement | null>(null);
 
   useTheme(containerRef, {
-    [`${Theme.Default}`]: styles.container,
-    [`${Theme.Dark}`]: styles['container--dark'],
+    [Theme.Default]: styles.container,
+    [Theme.Dark]: styles['container--dark'],
   });
 
   return (

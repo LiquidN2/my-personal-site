@@ -21,8 +21,8 @@ const FooterPoweredBy: FC = () => {
   }, [theme]);
 
   useTheme(textRef, {
-    [`${Theme.Default}`]: styles.text,
-    [`${Theme.Dark}`]: `${styles.text} ${styles['text--dark']}`,
+    [Theme.Default]: styles.text,
+    [Theme.Dark]: styles['text--light'],
   });
 
   return (

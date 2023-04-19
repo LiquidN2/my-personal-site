@@ -7,7 +7,7 @@ interface ClassNamesType {
 
 export const useTheme = (
   elementRef: MutableRefObject<
-    HTMLElement | HTMLDivElement | HTMLSpanElement | null
+    HTMLElement | HTMLDivElement | HTMLParagraphElement | HTMLSpanElement | null
   >,
   classNames: ClassNamesType
 ) => {

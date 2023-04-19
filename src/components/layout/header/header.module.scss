@@ -4,6 +4,7 @@
   width: 100%;
 
   &--dark {
+    @extend .container;
     background-color: var(--color-gray);
   }
 }

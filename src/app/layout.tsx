@@ -7,7 +7,7 @@ import ThemeProvider from '@/components/context/theme-provider.component';
 import styles from './layout.module.scss';
 
 export const metadata = {
-  title: 'Hugh Nguyen | Personal Site',
+  title: 'Hugh Nguyen 👨‍💻 Full-Stack Developer',
   description:
     'Personal website of Hugh Nguyen, web developer. This project is built on NextJS 13',
 };

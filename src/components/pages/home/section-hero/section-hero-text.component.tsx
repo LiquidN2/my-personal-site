@@ -12,13 +12,13 @@ const SectionHeroText: FC = () => {
   const headingSubRef = useRef<HTMLHeadingElement | null>(null);
 
   useTheme(headingMainRef, {
-    [`${Theme.Default}`]: styles['heading--main'],
-    [`${Theme.Dark}`]: styles['heading--main-light'],
+    [Theme.Default]: styles['heading--main'],
+    [Theme.Dark]: styles['heading--main-light'],
   });
 
   useTheme(headingSubRef, {
-    [`${Theme.Default}`]: styles['heading--sub'],
-    [`${Theme.Dark}`]: styles['heading--sub-light'],
+    [Theme.Default]: styles['heading--sub'],
+    [Theme.Dark]: styles['heading--sub-light'],
   });
 
   return (

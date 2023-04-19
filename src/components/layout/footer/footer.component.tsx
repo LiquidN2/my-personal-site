@@ -15,8 +15,8 @@ const Footer: FC = () => {
   const footerRef = useRef<HTMLDivElement | null>(null);
 
   useTheme(footerRef, {
-    [`${Theme.Default}`]: styles.container,
-    [`${Theme.Dark}`]: `${styles.container} ${styles['container--dark']}`,
+    [Theme.Default]: styles.container,
+    [Theme.Dark]: styles['container--dark'],
   });
 
   return (
