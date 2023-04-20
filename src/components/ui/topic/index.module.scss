@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  border: none;
+  border-radius: 1.5rem;
+  overflow: hidden;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.thumbnail {
+  padding: 1.8rem;
+  background-color: var(--color-light-3);
+  border: none;
+  //overflow: hidden;
+  //border-radius: 2rem;
+  transition: all 0.2s;
+  width: 6rem;
+
+  display: flex;
+  justify-content: center;
+}
+
+.container:hover .thumbnail {
+  background-color: var(--color-primary);
+}
+
+.icon {
+  font-size: 1.8rem;
+}
+
+.text {
+  flex-grow: 1;
+  padding: 1.8rem;
+  background-color: white;
+  border: none;
+
+  font-size: 1.8rem;
+  color: var(--color-gray);
+}
