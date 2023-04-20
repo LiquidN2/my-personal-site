@@ -1,0 +1,24 @@
+.container {
+  background-color: var(--background-color);
+  padding: 8rem 0;
+}
+
+.inner-box {
+  display: flex;
+  width: 100%;
+}
+
+.left {
+  flex: 0 0 65%;
+  margin-right: 4rem;
+}
+
+.right {
+  flex-grow: 1;
+
+  > * {
+    &:not(:last-child) {
+      margin-bottom: 7rem;
+    }
+  }
+}

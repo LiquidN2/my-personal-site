@@ -5,7 +5,7 @@ import { FC, useRef } from 'react';
 import { useTheme } from '@/hooks/useTheme';
 import { Theme } from '@/components/context/theme-context';
 
-import styles from './section-greet.module.scss';
+import styles from './index.module.scss';
 
 const SectionGreet: FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);

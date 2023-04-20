@@ -1,0 +1,23 @@
+.container {
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  background-color: var(--color-light-3);
+  border-radius: 0.8rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-gray-lighter);
+  margin-bottom: 2rem;
+
+  &--primary {
+    @extend .container;
+    background-color: var(--color-primary);
+    color: white;
+  }
+
+  &--secondary {
+    @extend .container;
+    background-color: var(--color-secondary);
+    color: white;
+  }
+}

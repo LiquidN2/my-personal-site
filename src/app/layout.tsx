@@ -1,7 +1,7 @@
 import '@/styles/main.scss';
 
-import Header from '@/components/layout/header/header.component';
-import Footer from '@/components/layout/footer/footer.component';
+import Header from '@/components/layout/header';
+import Footer from '@/components/layout/footer';
 import ThemeProvider from '@/components/context/theme-provider.component';
 
 import styles from './layout.module.scss';

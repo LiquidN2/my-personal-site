@@ -1,0 +1,14 @@
+.link {
+  text-decoration: none;
+}
+
+.text {
+  font-size: 2rem;
+  color: var(--color-gray);
+  margin-bottom: 2rem;
+  transition: color 0.2s;
+
+  &:hover {
+    color: var(--color-primary);
+  }
+}

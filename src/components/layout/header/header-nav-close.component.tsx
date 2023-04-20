@@ -1,7 +1,7 @@
 import { FC, MouseEventHandler } from 'react';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 
-import ButtonIcon from '@/components/ui/button-icon.component';
+import ButtonIcon from '@/components/ui/button/button-icon.component';
 
 interface HeaderNavCloseProps {
   onClick: MouseEventHandler;

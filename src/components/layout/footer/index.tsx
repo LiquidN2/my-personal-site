@@ -9,7 +9,7 @@ import FooterPoweredBy from './footer-poweredby.component';
 import { useTheme } from '@/hooks/useTheme';
 import { Theme } from '@/components/context/theme-context';
 
-import styles from './footer.module.scss';
+import styles from './index.module.scss';
 
 const Footer: FC = () => {
   const footerRef = useRef<HTMLDivElement | null>(null);

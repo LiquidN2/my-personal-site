@@ -1,6 +1,6 @@
 import { FC, useRef } from 'react';
 
-import Button from '@/components/ui/button.component';
+import Button from '@/components/ui/button/button.component';
 
 import { useTheme } from '@/hooks/useTheme';
 import { Theme } from '@/components/context/theme-context';

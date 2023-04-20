@@ -7,13 +7,13 @@ import HeaderSearch from './header-search.component';
 import HeaderNav from './header-nav.component';
 import HeaderNavToggle from './header-nav-toggle.component';
 import HeaderNavClose from './header-nav-close.component';
-import ButtonDarkModeToggle from '@/components/ui/button-darkmode-toggle.module';
+import ButtonDarkModeToggle from '@/components/ui/button/button-darkmode-toggle.module';
 import { Theme, ThemeContext } from '@/components/context/theme-context';
 
 import { useResponsive } from '@/hooks/useResponsive';
 import { useTheme } from '@/hooks/useTheme';
 
-import styles from './header.module.scss';
+import styles from './index.module.scss';
 
 const Header: FC = () => {
   const [hiddenNav, setHiddenNav] = useState(true);

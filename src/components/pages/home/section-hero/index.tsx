@@ -8,7 +8,7 @@ import SectionHeroImage from './section-hero-image.component';
 import { useTheme } from '@/hooks/useTheme';
 import { Theme } from '@/components/context/theme-context';
 
-import styles from './section-hero.module.scss';
+import styles from './index.module.scss';
 
 const SectionHero: FC = () => {
   const containerRef = useRef<HTMLElement | null>(null);

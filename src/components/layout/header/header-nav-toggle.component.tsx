@@ -3,7 +3,7 @@
 import { FC, MouseEventHandler } from 'react';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
-import ButtonIcon from '@/components/ui/button-icon.component';
+import ButtonIcon from '@/components/ui/button/button-icon.component';
 
 interface HeaderNavToggleProps {
   onClick: MouseEventHandler;
