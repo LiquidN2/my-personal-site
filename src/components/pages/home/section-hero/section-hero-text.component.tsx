@@ -1,22 +1,18 @@
-import { FC, useRef } from 'react';
+import { FC } from 'react';
 
 import Button from '@/components/ui/button/button.component';
 
-import { useTheme } from '@/hooks/useTheme';
-import { Theme } from '@/components/context/theme-context';
+import { Theme, useThemes } from '@/hooks/useTheme';
 
 import styles from './section-hero-text.module.scss';
 
 const SectionHeroText: FC = () => {
-  const headingMainRef = useRef<HTMLHeadingElement | null>(null);
-  const headingSubRef = useRef<HTMLHeadingElement | null>(null);
-
-  useTheme(headingMainRef, {
+  const headingMainRef = useThemes<HTMLHeadingElement>({
     [Theme.Default]: styles['heading--main'],
     [Theme.Dark]: styles['heading--main-light'],
   });
 
-  useTheme(headingSubRef, {
+  const headingSubRef = useThemes<HTMLHeadingElement>({
     [Theme.Default]: styles['heading--sub'],
     [Theme.Dark]: styles['heading--sub-light'],
   });

@@ -4,6 +4,8 @@ import { FC, useEffect, useState } from 'react';
 
 import Card from '@/components/ui/card';
 
+import { Theme, useThemes } from '@/hooks/useTheme';
+
 import styles from './recent-blogs.module.scss';
 
 const RecentBlogs: FC = () => {
@@ -34,9 +36,16 @@ const RecentBlogs: FC = () => {
     ]);
   }, []);
 
+  const headingRef = useThemes<HTMLHeadingElement>({
+    [Theme.Default]: styles.heading,
+    [Theme.Dark]: styles['heading--light'],
+  });
+
   return (
     <div className={styles.container}>
-      <h3 className={styles.heading}>Recently Published</h3>
+      <h3 className={styles.heading} ref={headingRef}>
+        Recently Published
+      </h3>
       <div className={styles.list}>
         {blogs.map(
           ({ imageUrl, topic, heading, excerpt, date, time, url }, index) => (

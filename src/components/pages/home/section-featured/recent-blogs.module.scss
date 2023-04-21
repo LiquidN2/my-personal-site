@@ -11,6 +11,11 @@
 
   border-left: 0.4rem solid var(--color-light);
   padding-left: 2rem;
+
+  &--light {
+    @extend .heading;
+    color: var(--color-light);
+  }
 }
 
 .list {

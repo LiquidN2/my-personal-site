@@ -23,7 +23,8 @@
   font-weight: 700;
   color: var(--font-color-logo-text);
 
-  &--dark {
+  &--light {
+    @extend .text;
     color: var(--color-light);
   }
 }

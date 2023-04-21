@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useEffect, useContext, useRef, useState } from 'react';
+import { FC, useEffect, useContext, useState } from 'react';
 
 import Logo from '@/components/ui/logo.component';
 import HeaderSearch from './header-search.component';
@@ -11,7 +11,7 @@ import ButtonDarkModeToggle from '@/components/ui/button/button-darkmode-toggle.
 import { Theme, ThemeContext } from '@/components/context/theme-context';
 
 import { useResponsive } from '@/hooks/useResponsive';
-import { useTheme } from '@/hooks/useTheme';
+import { useThemes } from '@/hooks/useTheme';
 
 import styles from './index.module.scss';
 
@@ -23,8 +23,6 @@ const Header: FC = () => {
   const [darkModeOn, setDarkModeOn] = useState(false);
 
   const { enableTheme } = useContext(ThemeContext);
-
-  const headerRef = useRef<HTMLDivElement | null>(null);
 
   const { respondMobile } = useResponsive();
 
@@ -44,7 +42,7 @@ const Header: FC = () => {
     enableTheme(Theme.Dark);
   }, [darkModeOn, enableTheme]);
 
-  useTheme(headerRef, {
+  const headerRef = useThemes<HTMLDivElement>({
     [Theme.Default]: styles.container,
     [Theme.Dark]: styles['container--dark'],
   });

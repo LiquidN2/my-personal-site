@@ -1,5 +1,7 @@
 import { FC } from 'react';
 
+import { Theme, useThemes } from '@/hooks/useTheme';
+
 import styles from './card-excerpt.module.scss';
 
 interface CardExceptProps {
@@ -7,7 +9,16 @@ interface CardExceptProps {
 }
 
 const CardExcept: FC<CardExceptProps> = ({ text }) => {
-  return <p className={styles.container}>{text}</p>;
+  const textRef = useThemes<HTMLParagraphElement>({
+    [Theme.Default]: styles.container,
+    [Theme.Dark]: styles['container--light'],
+  });
+
+  return (
+    <p className={styles.container} ref={textRef}>
+      {text}
+    </p>
+  );
 };
 
 export default CardExcept;

@@ -5,6 +5,7 @@
   border: none;
   border-radius: 1.5rem;
   overflow: hidden;
+  background-color: white;
 
   &:hover {
     cursor: pointer;
@@ -13,19 +14,28 @@
   &:not(:last-child) {
     margin-bottom: 1.5rem;
   }
+
+  &--dark {
+    @extend .container;
+    color: var(--color-light-2);
+    background-color: var(--color-gray);
+  }
 }
 
 .thumbnail {
   padding: 1.8rem;
   background-color: var(--color-light-3);
   border: none;
-  //overflow: hidden;
-  //border-radius: 2rem;
   transition: all 0.2s;
   width: 6rem;
 
   display: flex;
   justify-content: center;
+
+  &--dark {
+    @extend .thumbnail;
+    background-color: var(--color-gray-lighter);
+  }
 }
 
 .container:hover .thumbnail {
@@ -39,9 +49,14 @@
 .text {
   flex-grow: 1;
   padding: 1.8rem;
-  background-color: white;
+  // background-color: white;
   border: none;
 
   font-size: 1.8rem;
   color: var(--color-gray);
+
+  &--light {
+    @extend .text;
+    color: var(--color-light-2);
+  }
 }

@@ -2,4 +2,9 @@
   font-size: 1.4rem;
   color: var(--color-gray-lighter);
   margin-bottom: 2rem;
+
+  &--light {
+    @extend .container;
+    color: var(--color-light);
+  }
 }

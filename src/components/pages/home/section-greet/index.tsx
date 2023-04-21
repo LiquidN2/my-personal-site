@@ -1,22 +1,18 @@
 'use client';
 
-import { FC, useRef } from 'react';
+import { FC } from 'react';
 
-import { useTheme } from '@/hooks/useTheme';
-import { Theme } from '@/components/context/theme-context';
+import { Theme, useThemes } from '@/hooks/useTheme';
 
 import styles from './index.module.scss';
 
 const SectionGreet: FC = () => {
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const textRef = useRef<HTMLParagraphElement | null>(null);
-
-  useTheme(containerRef, {
+  const containerRef = useThemes<HTMLDivElement>({
     [Theme.Default]: styles.container,
     [Theme.Dark]: styles['container--dark'],
   });
 
-  useTheme(textRef, {
+  const textRef = useThemes<HTMLParagraphElement>({
     [Theme.Default]: styles.text,
     [Theme.Dark]: styles['text--light'],
   });

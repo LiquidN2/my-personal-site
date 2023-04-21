@@ -1,5 +1,7 @@
 import { FC } from 'react';
 
+import { Theme, useThemes } from '@/hooks/useTheme';
+
 import styles from './index.module.scss';
 
 interface TagProps {
@@ -7,7 +9,16 @@ interface TagProps {
 }
 
 const Tag: FC<TagProps> = ({ text }) => {
-  return <span className={styles.container}>#{text}</span>;
+  const textRef = useThemes<HTMLSpanElement>({
+    [Theme.Default]: styles.container,
+    [Theme.Dark]: styles['container--light'],
+  });
+
+  return (
+    <span className={styles.container} ref={textRef}>
+      #{text}
+    </span>
+  );
 };
 
 export default Tag;

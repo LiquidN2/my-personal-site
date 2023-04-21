@@ -3,4 +3,9 @@
   color: var(--color-gray-lighter);
   display: flex;
   align-items: center;
+
+  &--light {
+    @extend .container;
+    color: var(--color-light);
+  }
 }

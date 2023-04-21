@@ -1,20 +1,17 @@
 'use client';
 
-import { FC, useRef } from 'react';
+import { FC } from 'react';
 
 import Logo from '@/components/ui/logo.component';
 import FooterCopyright from './footer-copyright.component';
 import FooterPoweredBy from './footer-poweredby.component';
 
-import { useTheme } from '@/hooks/useTheme';
-import { Theme } from '@/components/context/theme-context';
+import { Theme, useThemes } from '@/hooks/useTheme';
 
 import styles from './index.module.scss';
 
 const Footer: FC = () => {
-  const footerRef = useRef<HTMLDivElement | null>(null);
-
-  useTheme(footerRef, {
+  const footerRef = useThemes<HTMLDivElement>({
     [Theme.Default]: styles.container,
     [Theme.Dark]: styles['container--dark'],
   });

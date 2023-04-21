@@ -6,6 +6,8 @@ import CardHeading from './card-heading.component';
 import CardExcept from './card-excerpt.component';
 import CardDateTime from './card-datetime.component';
 
+import { Theme, useThemes } from '@/hooks/useTheme';
+
 import styles from './index.module.scss';
 
 interface CardProps {
@@ -27,8 +29,13 @@ const Card: FC<CardProps> = ({
   imageUrl,
   url,
 }) => {
+  const containerRef = useThemes<HTMLDivElement>({
+    [Theme.Default]: styles.container,
+    [Theme.Dark]: styles['container--dark'],
+  });
+
   return (
-    <article className={styles.container}>
+    <article className={styles.container} ref={containerRef}>
       <CardThumbnail imageUrl={imageUrl} alt={heading} />
       <div className={styles['text-box']}>
         <CardTopic text={topic} />

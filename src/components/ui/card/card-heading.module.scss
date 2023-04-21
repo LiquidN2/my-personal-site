@@ -11,4 +11,9 @@
   &:hover {
     color: var(--color-primary);
   }
+
+  &--light {
+    @extend .text;
+    color: var(--color-light-2);
+  }
 }

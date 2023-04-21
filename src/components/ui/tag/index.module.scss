@@ -17,4 +17,10 @@
     background-color: var(--color-primary);
     color: white;
   }
+
+  &--light {
+    @extend .container;
+    color: var(--color-light-3);
+    background-color: var(--color-gray-lighter);
+  }
 }

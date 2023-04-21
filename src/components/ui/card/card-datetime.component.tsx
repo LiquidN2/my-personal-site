@@ -1,5 +1,7 @@
 import { FC } from 'react';
 
+import { Theme, useThemes } from '@/hooks/useTheme';
+
 import styles from './card-datetime.module.scss';
 
 interface CardDateTimeProps {
@@ -8,8 +10,13 @@ interface CardDateTimeProps {
 }
 
 const CardDateTime: FC<CardDateTimeProps> = ({ date, time }) => {
+  const textRef = useThemes<HTMLTimeElement>({
+    [Theme.Default]: styles.container,
+    [Theme.Dark]: styles['container--light'],
+  });
+
   return (
-    <time className={styles.container}>
+    <time className={styles.container} ref={textRef}>
       📅 {date} - 🕧 {time}
     </time>
   );

@@ -1,19 +1,16 @@
 'use client';
 
-import { FC, useRef } from 'react';
+import { FC } from 'react';
 
 import SectionHeroText from './section-hero-text.component';
 import SectionHeroImage from './section-hero-image.component';
 
-import { useTheme } from '@/hooks/useTheme';
-import { Theme } from '@/components/context/theme-context';
+import { Theme, useThemes } from '@/hooks/useTheme';
 
 import styles from './index.module.scss';
 
 const SectionHero: FC = () => {
-  const containerRef = useRef<HTMLElement | null>(null);
-
-  useTheme(containerRef, {
+  const containerRef = useThemes({
     [Theme.Default]: styles.container,
     [Theme.Dark]: styles['container--dark'],
   });
