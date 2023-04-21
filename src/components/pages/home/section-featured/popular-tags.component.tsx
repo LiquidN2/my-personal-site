@@ -3,7 +3,7 @@
 import { FC, useEffect, useState } from 'react';
 
 import Tag from '@/components/ui/tag';
-import { Theme, useThemes } from '@/hooks/useTheme';
+import { Theme, useThemes } from '@/hooks/useThemes';
 import styles from './popular-tags.module.scss';
 
 const PopularTags: FC = () => {

@@ -3,7 +3,7 @@
 import { FC, useContext, useEffect, useState } from 'react';
 import Image from 'next/image';
 
-import { useThemes } from '@/hooks/useTheme';
+import { useThemes } from '@/hooks/useThemes';
 import { Theme, ThemeContext } from '@/components/context/theme-context';
 
 import styles from './footer-poweredby.module.scss';

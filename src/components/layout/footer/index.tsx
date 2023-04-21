@@ -6,7 +6,7 @@ import Logo from '@/components/ui/logo.component';
 import FooterCopyright from './footer-copyright.component';
 import FooterPoweredBy from './footer-poweredby.component';
 
-import { Theme, useThemes } from '@/hooks/useTheme';
+import { Theme, useThemes } from '@/hooks/useThemes';
 
 import styles from './index.module.scss';
 

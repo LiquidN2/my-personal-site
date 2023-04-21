@@ -6,7 +6,7 @@ import RecentBlogs from './recent-blogs.component';
 import Topics from './topics.component';
 import PopularTags from './popular-tags.component';
 
-import { Theme, useThemes } from '@/hooks/useTheme';
+import { Theme, useThemes } from '@/hooks/useThemes';
 
 import styles from './index.module.scss';
 

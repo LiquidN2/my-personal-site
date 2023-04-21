@@ -5,7 +5,7 @@ import { FC } from 'react';
 import SectionHeroText from './section-hero-text.component';
 import SectionHeroImage from './section-hero-image.component';
 
-import { Theme, useThemes } from '@/hooks/useTheme';
+import { Theme, useThemes } from '@/hooks/useThemes';
 
 import styles from './index.module.scss';
 

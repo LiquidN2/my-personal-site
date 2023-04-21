@@ -11,7 +11,7 @@ import ButtonDarkModeToggle from '@/components/ui/button/button-darkmode-toggle.
 import { Theme, ThemeContext } from '@/components/context/theme-context';
 
 import { useResponsive } from '@/hooks/useResponsive';
-import { useThemes } from '@/hooks/useTheme';
+import { useThemes } from '@/hooks/useThemes';
 
 import styles from './index.module.scss';
 

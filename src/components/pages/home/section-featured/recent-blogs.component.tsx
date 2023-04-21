@@ -4,7 +4,7 @@ import { FC, useEffect, useState } from 'react';
 
 import Card from '@/components/ui/card';
 
-import { Theme, useThemes } from '@/hooks/useTheme';
+import { Theme, useThemes } from '@/hooks/useThemes';
 
 import styles from './recent-blogs.module.scss';
 

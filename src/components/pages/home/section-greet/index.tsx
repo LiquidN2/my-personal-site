@@ -2,7 +2,7 @@
 
 import { FC } from 'react';
 
-import { Theme, useThemes } from '@/hooks/useTheme';
+import { Theme, useThemes } from '@/hooks/useThemes';
 
 import styles from './index.module.scss';
 

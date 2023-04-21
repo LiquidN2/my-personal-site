@@ -6,7 +6,7 @@ import CardHeading from './card-heading.component';
 import CardExcept from './card-excerpt.component';
 import CardDateTime from './card-datetime.component';
 
-import { Theme, useThemes } from '@/hooks/useTheme';
+import { Theme, useThemes } from '@/hooks/useThemes';
 
 import styles from './index.module.scss';
 

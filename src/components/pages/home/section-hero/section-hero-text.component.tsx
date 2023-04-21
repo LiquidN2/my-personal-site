@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import Button from '@/components/ui/button/button.component';
 
-import { Theme, useThemes } from '@/hooks/useTheme';
+import { Theme, useThemes } from '@/hooks/useThemes';
 
 import styles from './section-hero-text.module.scss';
 
