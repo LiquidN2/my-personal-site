@@ -11,6 +11,7 @@ const SectionHeroImage: FC = () => {
         alt="typing code image"
         height={500}
         width={500}
+        priority={true}
       />
     </div>
   );

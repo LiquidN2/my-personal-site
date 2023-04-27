@@ -1,15 +1,18 @@
 import '@/styles/main.scss';
 
+import { Metadata } from 'next';
+
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import ThemeProvider from '@/components/context/theme-provider.component';
 
-import styles from './layout.module.scss';
-
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Hugh Nguyen 👨‍💻 Full-Stack Developer',
   description:
     'Personal website of Hugh Nguyen, web developer. This project is built on NextJS 13',
+  icons: {
+    icon: '/img/favicon.ico',
+  },
 };
 
 export default function RootLayout({
@@ -22,7 +25,7 @@ export default function RootLayout({
       <body>
         <ThemeProvider>
           <Header />
-          <main className={styles.container}>{children}</main>
+          {children}
           <Footer />
         </ThemeProvider>
       </body>
