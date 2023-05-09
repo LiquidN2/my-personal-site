@@ -2,23 +2,23 @@ import { FC, ReactNode } from 'react';
 
 import { Theme, useThemes } from '@/hooks/useThemes';
 
-import styles from './heading-primary.module.scss';
+import styles from './heading-secondary.module.scss';
 
-interface HeadingPrimaryProps {
+interface HeadingSecondaryProps {
   children: ReactNode;
 }
 
-const HeadingPrimary: FC<HeadingPrimaryProps> = ({ children }) => {
+const HeadingSecondary: FC<HeadingSecondaryProps> = ({ children }) => {
   const ref = useThemes<HTMLHeadingElement>({
     [Theme.Default]: styles.text,
     [Theme.Dark]: styles['text--light'],
   });
 
   return (
-    <h2 className={styles.text} ref={ref}>
+    <h3 className={styles.text} ref={ref}>
       {children}
-    </h2>
+    </h3>
   );
 };
 
-export default HeadingPrimary;
+export default HeadingSecondary;

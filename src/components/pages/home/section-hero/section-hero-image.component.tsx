@@ -5,7 +5,7 @@ import styles from './section-hero-image.module.scss';
 
 const SectionHeroImage: FC = () => {
   return (
-    <div className={styles.container}>
+    <figure className={styles.container}>
       <Image
         src="img/typing-code.svg"
         alt="typing code image"
@@ -13,7 +13,7 @@ const SectionHeroImage: FC = () => {
         width={500}
         priority={true}
       />
-    </div>
+    </figure>
   );
 };
 

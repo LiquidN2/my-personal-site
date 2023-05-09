@@ -3,4 +3,10 @@
   margin-bottom: 4rem;
   font-size: 4.4rem;
   font-weight: 900;
+  width: 100%;
+
+  &--light {
+    @extend .text;
+    color: var(--color-light-2);
+  }
 }
