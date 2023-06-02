@@ -1,0 +1,42 @@
+@use '@/styles/mixins' as *;
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 3rem;
+  grid-row-gap: 3rem;
+
+  //margin-top: 6rem;
+  background-color: white;
+  border-radius: 1rem;
+  padding: 4rem;
+
+  @include box-shadow;
+
+  &--dark {
+    @extend .container;
+    background-color: var(--color-gray);
+  }
+}
+
+.btn {
+  cursor: pointer;
+  border: none;
+  border-radius: 10rem;
+  padding: 1.3rem 2.5rem;
+  font-family: inherit;
+  font-size: 1.6rem;
+  text-decoration: none;
+  transition: all 0.2s;
+  display: inline-block;
+}
+
+.btn-submit {
+  @extend .btn;
+  color: white;
+  background-color: var(--color-primary);
+
+  &:hover {
+    background-color: var(--color-primary-darker);
+  }
+}

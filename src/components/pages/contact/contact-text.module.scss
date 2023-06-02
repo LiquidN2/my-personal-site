@@ -1,0 +1,11 @@
+.text {
+  font-size: 2rem;
+  color: var(--color-gray-lighter);
+  line-height: 1.6;
+  margin-bottom: 3rem;
+
+  &--light {
+    @extend .text;
+    color: var(--color-light);
+  }
+}

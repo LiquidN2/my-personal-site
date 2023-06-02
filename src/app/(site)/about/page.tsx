@@ -2,6 +2,8 @@
 
 import Image from 'next/image';
 
+import MainContainer from '@/components/layout/main-container.component';
+import SectionContainer from '@/components/layout/section-container.component';
 import HeadingPrimary from '@/components/ui/heading/heading-primary.component';
 import HeadingSecondary from '@/components/ui/heading/heading-secondary.component';
 
@@ -10,11 +12,6 @@ import { Theme, useThemes } from '@/hooks/useThemes';
 import styles from './page.module.scss';
 
 export default function AboutPage() {
-  const mainRef = useThemes<HTMLDivElement>({
-    [Theme.Default]: styles.container,
-    [Theme.Dark]: styles['container--dark'],
-  });
-
   const abstractRef = useThemes<HTMLParagraphElement>({
     [Theme.Default]: styles.abstract,
     [Theme.Dark]: styles['abstract--light'],
@@ -25,14 +22,9 @@ export default function AboutPage() {
     [Theme.Dark]: styles['text-inner-box--dark'],
   });
 
-  const textRef = useThemes<HTMLParagraphElement>({
-    [Theme.Default]: styles.text,
-    [Theme.Dark]: styles['text--light'],
-  });
-
   return (
-    <main className={styles.container} ref={mainRef}>
-      <section className={`${styles['inner-box']} u-container`}>
+    <MainContainer>
+      <SectionContainer>
         <HeadingPrimary>About Me</HeadingPrimary>
 
         <p className={styles.abstract} ref={abstractRef}>
@@ -71,7 +63,7 @@ export default function AboutPage() {
             </p>
           </div>
         </div>
-      </section>
-    </main>
+      </SectionContainer>
+    </MainContainer>
   );
 }

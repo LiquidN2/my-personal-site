@@ -1,22 +1,5 @@
 @use '@/styles/mixins' as *;
 
-.container {
-  width: 100%;
-  background-color: var(--background-color);
-
-  &--dark {
-    @extend .container;
-    background-color: var(--color-dark);
-  }
-}
-
-.inner-box {
-  padding: 10rem 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
 .abstract {
   font-size: 2rem;
   color: var(--color-gray-lighter);
