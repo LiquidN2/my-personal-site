@@ -1,0 +1,9 @@
+.container {
+  padding: 10rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
