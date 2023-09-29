@@ -1,0 +1,98 @@
+---
+interface Props {
+  label: string;
+  name: string;
+  id: string;
+  type: 'text' | 'email' | 'tel' | 'textarea';
+  required?: boolean;
+  fullWidth?: boolean;
+}
+
+const {
+  label,
+  name,
+  id,
+  type,
+  required = false,
+  fullWidth = false,
+} = Astro.props;
+---
+
+<div class={`form__group ${fullWidth ? 'form__group--full' : ''}`}>
+  <label for={id} class="form__label">
+    {label}
+    {required ? ' *' : ''}
+  </label>
+  {
+    type === 'textarea' ? (
+      <textarea
+        name={name}
+        id={id}
+        required={required}
+        class="form__textarea"
+      />
+    ) : (
+      <input
+        type={type}
+        name={name}
+        id={id}
+        required={required}
+        class="form__input"
+      />
+    )
+  }
+</div>
+
+<style lang="scss" is:global>
+  .form {
+    &__group {
+      display: flex;
+      flex-direction: column;
+
+      &--full {
+        grid-column: 1 / -1;
+      }
+    }
+
+    &__label {
+      font-size: 1.6rem;
+      color: var(--color-gray-lighter);
+      margin-bottom: 1rem;
+    }
+
+    &__input,
+    &__textarea {
+      border-radius: 3px;
+      border: none;
+      background-color: var(--background-color);
+      font-family: inherit;
+      font-size: 1.6rem;
+      text-decoration: none;
+      color: var(--color-gray-lighter);
+      padding: 1rem 1.5rem;
+      width: 100%;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &__textarea {
+      resize: vertical;
+    }
+  }
+
+  .theme-dark {
+    .form {
+      &__label {
+        color: var(--color-light);
+      }
+
+      &__input,
+      &__textarea {
+        background-color: var(--color-dark);
+        color: var(--color-light);
+      }
+    }
+  }
+</style>

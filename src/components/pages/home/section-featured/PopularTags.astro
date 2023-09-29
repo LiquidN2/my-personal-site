@@ -1,0 +1,94 @@
+---
+const tags = [
+  'javascript',
+  'typescript',
+  'react',
+  'nodejs',
+  'php',
+  'html',
+  'css',
+  'mongdb',
+  'sql',
+  'front-end',
+  'back-end',
+  'full-stack',
+];
+---
+
+<div class="popular-tags">
+  <h3 class="popular-tags__heading">Popular Tags</h3>
+  <div class="popular-tags__list">
+    {tags.map(tag => <span class="popular-tags__item">{tag}</span>)}
+  </div>
+</div>
+
+<style lang="scss" is:global>
+  .popular-tags {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__heading {
+      font-size: 2.5rem;
+      text-align: center;
+      color: var(--color-gray-lighter);
+      margin-bottom: 4rem;
+    }
+
+    &__list {
+      padding: 2rem;
+      background-color: white;
+      border-radius: 1.5rem;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    &__item {
+      font-size: 1.2rem;
+      padding: 0.7rem 1rem;
+      border-radius: 1rem;
+      background-color: var(--color-light-3);
+      color: var(--color-gray);
+      margin-bottom: 0.5rem;
+      transition: all 0.2s;
+
+      &:not(:last-child) {
+        margin-right: 0.5rem;
+      }
+
+      &:hover {
+        cursor: pointer;
+        background-color: var(--color-primary);
+        color: white;
+      }
+    }
+  }
+
+  .theme-dark {
+    .popular-tags {
+      background-color: var(--color-dark);
+
+      &__heading {
+        color: var(--color-light);
+      }
+
+      &__list {
+        background-color: var(--color-gray);
+        color: white;
+      }
+
+      &__item {
+        color: var(--color-light-3);
+        background-color: var(--color-gray-lighter);
+
+        &:hover {
+          background-color: var(--color-primary);
+          color: white;
+        }
+      }
+    }
+  }
+</style>

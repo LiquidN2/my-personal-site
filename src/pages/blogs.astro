@@ -1,0 +1,17 @@
+---
+import LayoutWithHeading from '@layout/LayoutWithHeading.astro';
+
+const metadata = {
+  title: 'Blogs | Hugh Nguyen 👨‍💻 Full-Stack Developer',
+  description:
+    'Personal website of Hugh Nguyen, web developer. This project is built on Astro',
+};
+---
+
+<LayoutWithHeading
+  title={metadata.title}
+  description={metadata.description}
+  headingPrimary="Blogs"
+>
+  <div>content</div>
+</LayoutWithHeading>

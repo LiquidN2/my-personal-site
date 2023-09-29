@@ -1,0 +1,37 @@
+---
+import Layout from './Layout.astro';
+import HeadingPrimary from '@components/ui/HeadingPrimary.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  headingPrimary: string;
+}
+
+const { title, description, headingPrimary } = Astro.props;
+---
+
+<Layout title={title} description={description}>
+  <div class="container">
+    <HeadingPrimary text={headingPrimary} />
+    <slot />
+  </div>
+</Layout>
+
+<style lang="scss">
+  @use '@styles/mixins' as *;
+
+  .container {
+    padding: 10rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    max-width: var(--max-width);
+    margin: 0 auto;
+
+    @include respond(phone) {
+      padding: 5rem 2rem;
+    }
+  }
+</style>

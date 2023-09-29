@@ -1,0 +1,77 @@
+---
+export interface Item {
+  id: string;
+  name: string;
+  value: string;
+  label: string;
+  selected?: boolean;
+}
+
+interface Props {
+  items: Item[];
+}
+
+const { items } = Astro.props;
+---
+
+<form class="filter-form">
+  {
+    items.map(({ id, name, value, label, selected = false }) => (
+      <div class="filter-form__item">
+        <input
+          class="filter-form__input"
+          type="checkbox"
+          id={id}
+          name={name}
+          value={value}
+          checked={selected}
+        />
+        <label class="filter-form__label" for={id}>
+          {label}
+        </label>
+      </div>
+    ))
+  }
+</form>
+
+<style lang="scss" is:global>
+  .filter-form {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    &__item {
+      &:not(:last-child) {
+        margin-right: 1rem;
+      }
+    }
+
+    &__input {
+      display: none;
+    }
+
+    &__label {
+      background-color: white;
+      padding: 1.3rem 2rem;
+      border-radius: 1rem;
+      color: var(--color-gray);
+      font-size: 1.6rem;
+      font-weight: 700;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      user-select: none;
+
+      &:hover {
+        cursor: pointer;
+        transform: translateY(-2px);
+        box-shadow: 0 0.5rem 1rem rgba(#000, 0.15);
+      }
+    }
+
+    &__input:checked + &__label {
+      background-color: var(--color-primary);
+      color: white;
+    }
+  }
+</style>

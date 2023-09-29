@@ -1,0 +1,45 @@
+<a href="/" class="brand__link">
+  <svg class="brand__logo">
+    <use xlink:href="/assets/fontawesome-free-6.4.2/sprites/solid.svg#code"
+    ></use>
+  </svg>
+
+  <div class="brand__text">Hugh Nguyen</div>
+</a>
+
+<style lang="scss" is:global>
+  @use '@styles/mixins' as *;
+
+  .brand {
+    &__link {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    &__logo {
+      width: 4rem;
+      height: 4rem;
+      fill: var(--logo-color);
+      margin-right: 1rem;
+
+      @include respond(phone) {
+        width: 3rem;
+        height: 3rem;
+      }
+    }
+
+    &__text {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--font-color-logo-text);
+    }
+  }
+
+  // DARK THEME
+  .theme-dark {
+    .brand__text {
+      color: var(--color-light);
+    }
+  }
+</style>

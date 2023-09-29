@@ -1,0 +1,139 @@
+---
+import { Image } from 'astro:assets';
+
+import LayoutWithHeading from '@layout/LayoutWithHeading.astro';
+import FormInput from '@components/pages/contact/FormInput.astro';
+import Button from '@components/ui/Button.astro';
+
+import localSvg from '@assets/img/get-in-touch.svg';
+
+const metadata = {
+  title: 'Contact | Hugh Nguyen 👨‍💻 Full-Stack Developer',
+  description:
+    'Personal website of Hugh Nguyen, web developer. This project is built on Astro',
+};
+---
+
+<LayoutWithHeading
+  title={metadata.title}
+  description={metadata.description}
+  headingPrimary="Get In Touch"
+>
+  <div class="contact">
+    <p class="contact__text">
+      Thank you for checking out my website 🙏. If you have any questions, feel
+      free to shoot me an email 📧. I&apos;ll get back to you as soon as I can
+      🙂
+    </p>
+
+    <Image src={localSvg} alt="get in touch" class="contact__image" />
+
+    <form id="contact-form" class="contact__form">
+      <FormInput label="Full Name" name="name" id="name" type="text" required />
+      <FormInput label="Company" name="company" id="company" type="text" />
+      <FormInput label="Phone Number" name="phone" id="phone" type="tel" />
+      <FormInput label="Email" name="email" id="email" type="email" required />
+      <FormInput
+        label="Subject"
+        name="subject"
+        id="subject"
+        type="text"
+        required
+        fullWidth
+      />
+      <FormInput
+        label="Message"
+        name="message"
+        id="message"
+        type="textarea"
+        required
+        fullWidth
+      />
+      <Button text="Submit" className="btn btn--primary" type="button" />
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      console.log('form submitted');
+    });
+  </script>
+
+  <style lang="scss" is:global>
+    @use '@styles/mixins' as *;
+
+    .contact {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 42rem 1fr;
+      grid-template-rows: repeat(2, auto);
+      column-gap: 6rem;
+      row-gap: 6rem;
+
+      @include respond(phone) {
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(3, auto);
+        row-gap: 3rem;
+      }
+
+      &__text {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        font-size: 1.6rem;
+        line-height: 1.6;
+        color: var(--color-gray-lighter);
+      }
+
+      &__image {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+        width: 100%;
+        height: 100%;
+
+        @include respond(phone) {
+          grid-row: 3 / 4;
+          width: 100%;
+        }
+      }
+
+      &__form {
+        grid-column: 2 / 3;
+        grid-row: 1 / 3;
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 3rem;
+        grid-row-gap: 3rem;
+
+        //margin-top: 6rem;
+        background-color: white;
+        border-radius: 1rem;
+        padding: 4rem;
+
+        @include box-shadow;
+
+        @include respond(phone) {
+          grid-column: 1 / 2;
+          grid-row: 2 / 3;
+
+          grid-template-columns: 100%;
+          padding: 1.5rem 2rem;
+        }
+      }
+    }
+
+    .theme-dark {
+      .contact {
+        &__text {
+          color: var(--color-light);
+        }
+
+        &__form {
+          background-color: var(--color-gray);
+        }
+      }
+    }
+  </style>
+</LayoutWithHeading>

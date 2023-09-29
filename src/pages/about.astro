@@ -1,0 +1,96 @@
+---
+import { Image } from 'astro:assets';
+import LayoutWithHeading from '@layout/LayoutWithHeading.astro';
+import localSvg from '@assets/img/developer-activity.svg';
+
+const metadata = {
+  title: 'About Me | Hugh Nguyen 👨‍💻 Full-Stack Developer',
+  description:
+    'Personal website of Hugh Nguyen, web developer. This project is built on Astro',
+};
+---
+
+<LayoutWithHeading
+  title={metadata.title}
+  description={metadata.description}
+  headingPrimary="About Me"
+>
+  <div class="about">
+    <Image src={localSvg} alt="developer activity" class="about__image" />
+    <div class="about__content">
+      <h3 class="about__content-heading">My Story</h3>
+      <div class="about__content-text">
+        <p>
+          I do not have a degree in computer science or information technology
+          like the majority of coders.
+        </p>
+
+        <p>
+          Nulla est elit, feugiat et lacinia nec, aliquam sit amet est. Ut in
+          consequat ipsum, in sagittis felis.
+        </p>
+
+        <p>
+          Phasellus arcu mauris, fermentum ac dui quis, blandit pharetra orci.
+          lacus et eros suscipit malesuada. Suspendisse hendrerit leo vitae. Sed
+          in ipsum porttitor. Pellentesque sollicitudin pharetra.
+        </p>
+      </div>
+    </div>
+  </div>
+</LayoutWithHeading>
+
+<style lang="scss" is:global>
+  @use '@styles/mixins' as *;
+
+  .about {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    &__image {
+      width: 50rem;
+      height: 100%;
+
+      @include respond(phone) {
+        width: 30rem;
+        height: 30rem;
+        margin-bottom: 3rem;
+      }
+    }
+
+    &__content {
+      width: 55rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__content-heading {
+      font-size: 2.5rem;
+      color: var(--color-gray);
+      margin-bottom: 4rem;
+      display: flex;
+      align-items: center;
+
+      border-left: 0.4rem solid var(--color-light);
+      padding-left: 2rem;
+    }
+
+    &__content-text {
+      background-color: white;
+      padding: 3rem 4rem;
+      border-radius: 1rem;
+
+      p {
+        color: var(--color-gray-lighter);
+        font-size: 1.6rem;
+        line-height: 1.6;
+
+        &:not(:last-child) {
+          margin-bottom: 3rem;
+        }
+      }
+    }
+  }
+</style>

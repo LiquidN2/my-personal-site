@@ -1,0 +1,74 @@
+<nav class="nav">
+  <ul class="nav__list">
+    <li class="nav__item">
+      <a href="/about" class="nav__link">About Me</a>
+    </li>
+
+    <li class="nav__item">
+      <a href="/portfolio" class="nav__link">Portfolio</a>
+    </li>
+
+    <li class="nav__item">
+      <a href="/blogs" class="nav__link">Blogs</a>
+    </li>
+
+    <li class="nav__item">
+      <a href="/contact" class="nav__link">Contact</a>
+    </li>
+  </ul>
+</nav>
+
+<style lang="scss" is:global>
+  @use '@styles/mixins' as *;
+
+  .nav {
+    margin-right: 2rem;
+
+    &__list {
+      display: flex;
+      flex-direction: row;
+      list-style: none;
+
+      @include respond(phone) {
+        flex-direction: column;
+      }
+    }
+
+    &__item {
+      @include respond(phone) {
+        margin: 1rem 2rem;
+      }
+
+      &:not(:last-child) {
+        margin-right: 2rem;
+      }
+    }
+
+    &__link {
+      text-decoration: none;
+      font-size: 1.6rem;
+      font-weight: 700;
+      transition: all 0.2s;
+
+      &:link,
+      &:visited {
+        color: var(--font-color-header);
+      }
+
+      &:hover,
+      &--active {
+        color: var(--color-primary) !important;
+      }
+    }
+  }
+
+  // DARK THEME
+  .theme-dark {
+    .nav__link {
+      &:link,
+      &:visited {
+        color: var(--color-light);
+      }
+    }
+  }
+</style>

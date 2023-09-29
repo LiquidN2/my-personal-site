@@ -1,0 +1,97 @@
+---
+import LayoutWithHeading from '@layout/LayoutWithHeading.astro';
+import FilterForm, { type Item } from '@components/ui/FilterForm.astro';
+import Card from '@components/ui/Card.astro';
+import { fetchAllProjects } from '@lib/projects';
+
+const metadata = {
+  title: 'Portfolio | Hugh Nguyen 👨‍💻 Full-Stack Developer',
+  description:
+    'Personal website of Hugh Nguyen, web developer. This project is built on Astro',
+};
+
+const items: Item[] = [
+  {
+    id: '1',
+    name: 'reactjs',
+    value: 'reactjs',
+    label: 'reactjs',
+  },
+  {
+    id: '2',
+    name: 'javascript',
+    value: 'javascript',
+    label: 'javascript',
+  },
+  {
+    id: '3',
+    name: 'nodejs',
+    value: 'nodejs',
+    label: 'nodejs',
+  },
+];
+
+interface Project {
+  name: string;
+  category: string;
+  description: string;
+  imageUrl: string;
+  createdDate: string;
+  time: string;
+  url: string;
+}
+
+const projects: Project[] = await fetchAllProjects();
+---
+
+<LayoutWithHeading
+  title={metadata.title}
+  description={metadata.description}
+  headingPrimary="Porfolio"
+>
+  <div class="portfolio">
+    <FilterForm items={items} />
+    <div class="portfolio__list">
+      {
+        projects.map(
+          ({
+            name,
+            category,
+            description,
+            imageUrl,
+            createdDate,
+            time,
+            url,
+          }) => (
+            <Card
+              title={name}
+              thumbnailUrl={imageUrl}
+              category={category}
+              categoryUrl="#"
+              url={url}
+              text={description}
+              date={createdDate}
+              time={time}
+              isPortrait
+            />
+          ),
+        )
+      }
+    </div>
+  </div>
+</LayoutWithHeading>
+
+<style lang="scss">
+  .portfolio {
+    display: flex;
+    flex-direction: column;
+
+    &__list {
+      margin-top: 4rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 2rem;
+      row-gap: 2rem;
+    }
+  }
+</style>

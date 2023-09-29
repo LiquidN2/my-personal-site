@@ -1,0 +1,32 @@
+<svg class="button-menu__icon">
+  <use xlink:href="/assets/fontawesome-free-6.4.2/sprites/solid.svg#bars"></use>
+</svg>
+
+<script>
+  import { closeNavMenu, openNavMenu } from '@store/navMenu';
+
+  function loadScriptHandler() {
+    document.addEventListener('click', e => {
+      if (!e.target) return;
+      const btnMenu = (e.target as HTMLElement).closest('.button-menu__icon');
+      return btnMenu ? openNavMenu() : closeNavMenu();
+    });
+  }
+
+  document.addEventListener('astro:page-load', loadScriptHandler);
+</script>
+
+<style lang="scss">
+  @use '@styles/mixins' as *;
+
+  .button-menu__icon {
+    display: none;
+    width: 3rem;
+    height: 3rem;
+    fill: var(--logo-color);
+
+    @include respond(phone) {
+      display: inline-block;
+    }
+  }
+</style>

@@ -1,0 +1,37 @@
+---
+import Logo from '@components/ui/Logo.astro';
+import Copyright from './Copyright.astro';
+import PoweredBy from './PoweredBy.astro';
+---
+
+<footer class="footer">
+  <div class="footer__inner-box u-container">
+    <Logo />
+    <Copyright />
+    <PoweredBy />
+  </div>
+</footer>
+
+<style lang="scss" is:global>
+  .footer {
+    width: 100%;
+
+    &__inner-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 6rem 0;
+
+      & > *:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  // DARK THEME
+  .theme-dark {
+    .footer {
+      background-color: var(--color-gray);
+    }
+  }
+</style>

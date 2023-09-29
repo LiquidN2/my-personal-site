@@ -1,0 +1,80 @@
+---
+import Card from '@components/ui/Card.astro';
+
+const blogs = [
+  {
+    imageUrl: '/assets/img/design.jpg',
+    topic: 'design',
+    heading: 'Design Philosophy',
+    excerpt:
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci ipsum nesciunt officia perferendis quisquam quod...',
+    date: '2023-08-15',
+    time: '1:04 PM',
+    url: '/',
+  },
+  {
+    imageUrl: '/assets/img/coding.jpg',
+    topic: 'coding',
+    heading: 'Why should we use Typescript?',
+    excerpt:
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci ipsum nesciunt officia perferendis quisquam quod...',
+    date: '2023-07-29',
+    time: '09:56 AM',
+    url: '/',
+  },
+];
+---
+
+<div class="recent-blogs">
+  <h3 class="recent-blogs__heading">Recent Blogs</h3>
+  <div class="recent-blogs__list">
+    {
+      blogs.map(({ imageUrl, topic, heading, excerpt, date, time, url }) => (
+        // @ts-ignore
+        <Card
+          thumbnailUrl={imageUrl}
+          title={heading}
+          category={topic}
+          text={excerpt}
+          url={url}
+          date={date}
+          time={time}
+        />
+      ))
+    }
+  </div>
+</div>
+
+<style lang="scss" is:global>
+  .recent-blogs {
+    width: 100%;
+
+    &__heading {
+      font-size: 2.5rem;
+      color: var(--color-gray);
+      margin-bottom: 4rem;
+      display: flex;
+      align-items: center;
+
+      border-left: 0.4rem solid var(--color-light);
+      padding-left: 2rem;
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+
+      & > *:not(:last-child) {
+        margin-bottom: 4rem;
+      }
+    }
+  }
+
+  .theme-dark {
+    .recent-blogs {
+      &__heading {
+        color: var(--color-light);
+      }
+    }
+  }
+</style>

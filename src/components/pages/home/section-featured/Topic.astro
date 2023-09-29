@@ -1,0 +1,79 @@
+---
+interface Props {
+  icon: string;
+  text: string;
+}
+
+const { icon, text } = Astro.props;
+---
+
+<div class="topic">
+  <figure class="topic__thumbnail">
+    <span class="topic__icon">{icon}</span>
+  </figure>
+  <p class="topic__text">{text}</p>
+</div>
+
+<style lang="scss" is:global>
+  .topic {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    border: none;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    background-color: white;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
+
+    &__thumbnail {
+      padding: 1.8rem;
+      background-color: var(--color-light-3);
+      border: none;
+      transition: all 0.2s;
+      width: 6rem;
+
+      display: flex;
+      justify-content: center;
+    }
+
+    &:hover &__thumbnail {
+      background-color: var(--color-primary);
+    }
+
+    &__icon {
+      font-size: 1.8rem;
+    }
+
+    &__text {
+      flex-grow: 1;
+      padding: 1.8rem;
+      // background-color: white;
+      border: none;
+
+      font-size: 1.8rem;
+      color: var(--color-gray);
+    }
+  }
+
+  .theme-dark {
+    .topic {
+      color: var(--color-light-2);
+      background-color: var(--color-gray);
+
+      &__thumbnail {
+        background-color: var(--color-gray-lighter);
+      }
+
+      &__text {
+        color: var(--color-light-2);
+      }
+    }
+  }
+</style>

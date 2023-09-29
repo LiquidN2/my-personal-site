@@ -1,0 +1,32 @@
+---
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<h2 class="heading-primary">{text}</h2>
+
+<style lang="scss" is:global>
+  @use '@styles/mixins' as *;
+
+  .heading-primary {
+    color: var(--color-gray);
+    margin-bottom: 4rem;
+    font-size: 4.4rem;
+    font-weight: 900;
+    width: 100%;
+
+    @include respond(phone) {
+      font-size: 3rem;
+      margin-bottom: 3rem;
+    }
+  }
+
+  .theme-dark {
+    .heading-primary {
+      color: var(--color-light-2);
+    }
+  }
+</style>

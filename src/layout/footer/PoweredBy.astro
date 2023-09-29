@@ -1,0 +1,23 @@
+<div class="poweredby">
+  <span class="poweredby__text">Powered by</span>
+</div>
+
+<style lang="scss" is:global>
+  .poweredby {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__text {
+      font-size: 1.6rem;
+      font-weight: 400;
+    }
+  }
+
+  // DARK THEME
+  .theme-dark {
+    .poweredby__text {
+      color: var(--color-light);
+    }
+  }
+</style>

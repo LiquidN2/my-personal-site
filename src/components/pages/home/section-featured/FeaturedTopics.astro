@@ -1,0 +1,59 @@
+---
+import Topic from './Topic.astro';
+
+const topics = [
+  {
+    text: 'Programming / Development',
+    icon: '👨‍💻',
+  },
+  {
+    text: 'Design / UX',
+    icon: '🖌️',
+  },
+  {
+    text: 'Health & Fitness',
+    icon: '‍🏃',
+  },
+  {
+    text: 'Mental Health & Well-Being',
+    icon: '🧘‍♂️',
+  },
+];
+---
+
+<div class="featured-topics">
+  <h3 class="featured-topics__heading">Featured Topics</h3>
+  <div class="featured-topics__list">
+    {topics.map(({ icon, text }) => <Topic icon={icon} text={text} />)}
+  </div>
+</div>
+
+<style lang="scss" is:global>
+  .featured-topics {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__heading {
+      font-size: 2.5rem;
+      text-align: center;
+      color: var(--color-gray-lighter);
+      margin-bottom: 4rem;
+    }
+
+    &__list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .theme-dark {
+    .featured-topics {
+      &__heading {
+        color: var(--color-light);
+      }
+    }
+  }
+</style>

@@ -1,0 +1,50 @@
+---
+import { Image } from 'astro:assets';
+
+import SectionHeroText from './SectionHeroText.astro';
+import localSvg from '@assets/img/typing-code.svg';
+---
+
+<section class="section-hero">
+  <div class="section-hero__inner-box u-container">
+    <SectionHeroText />
+    <Image src={localSvg} alt="typing code" class="section-hero__image" />
+  </div>
+</section>
+
+<style lang="scss" is:global>
+  @use '@styles/mixins' as *;
+
+  .section-hero {
+    width: 100%;
+    background-color: white;
+
+    &__inner-box {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      height: 100%;
+      padding-bottom: 6rem;
+
+      @include respond(phone) {
+        padding: 2rem;
+      }
+    }
+
+    &__image {
+      width: 60rem;
+      height: 100%;
+
+      @include respond(phone) {
+        width: 100%;
+      }
+    }
+  }
+
+  .theme-dark {
+    .section-hero {
+      background-color: var(--color-gray);
+    }
+  }
+</style>

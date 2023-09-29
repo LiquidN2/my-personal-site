@@ -1,0 +1,46 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+
+import '@styles/main.scss';
+import Header from './header/Header.astro';
+import Footer from './footer/Footer.astro';
+import Body from './Body.astro';
+import Main from './Main.astro';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <script
+      src="https://kit.fontawesome.com/ba69962226.js"
+      crossorigin="anonymous"></script>
+
+    <ViewTransitions />
+
+    <title>{title}</title>
+  </head>
+
+  <Body>
+    <Header />
+
+    <Main>
+      <slot />
+    </Main>
+
+    <Footer />
+  </Body>
+
+
+</html>

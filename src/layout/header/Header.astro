@@ -1,0 +1,88 @@
+---
+import Logo from '@components/ui/Logo.astro';
+import SearchBox from './SearchBox.astro';
+import NavBar from './NavBar.astro';
+import ThemeButton from './ThemeButton.astro';
+import ButtonMenu from './ButtonMenu.astro';
+---
+
+<header class="header">
+  <div class="header__inner-box u-container">
+    <Logo />
+    <SearchBox />
+    <ButtonMenu />
+
+    <div class="header__nav-container">
+      <NavBar />
+      <ThemeButton />
+    </div>
+  </div>
+</header>
+
+<script>
+  import { $navMenu } from '@store/navMenu';
+  $navMenu.subscribe(({ isOpen }) => {
+    const menu = document.querySelector(
+      '.header__nav-container',
+    ) as HTMLDivElement;
+    isOpen
+      ? menu.classList.add('header__nav-container--open')
+      : menu.classList.remove('header__nav-container--open');
+  });
+</script>
+
+<style lang="scss" is:global>
+  @use '@styles/mixins' as *;
+
+  .header {
+    width: 100%;
+
+    &__inner-box {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4rem 0;
+
+      @include respond(phone) {
+        position: relative;
+        padding: 1.5rem 1.8rem;
+      }
+    }
+
+    &__nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      @include respond(phone) {
+        position: fixed;
+        z-index: 10;
+        right: 0;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        background-color: white;
+        height: 100vh;
+        width: 40%;
+        transform: translateX(200px);
+        transition: all 0.2s;
+      }
+
+      &--open {
+        @include respond(phone) {
+          transform: translateX(0);
+        }
+      }
+    }
+  }
+
+  // DARK THEME
+  .theme-dark {
+    .header {
+      background-color: var(--color-gray);
+    }
+  }
+</style>

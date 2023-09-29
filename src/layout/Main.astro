@@ -1,0 +1,17 @@
+<main class="main">
+  <slot />
+</main>
+
+<style lang="scss" is:global>
+  main.main {
+    width: 100%;
+    flex-grow: 1;
+    background-color: var(--background-color);
+  }
+
+  .theme-dark {
+    main.main {
+      background-color: var(--color-dark);
+    }
+  }
+</style>

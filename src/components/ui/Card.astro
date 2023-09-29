@@ -1,0 +1,187 @@
+---
+// import { Image } from 'astro:assets';
+import moment from 'moment';
+moment.locale('en-au');
+
+interface Props {
+  isPortrait?: boolean;
+  thumbnailUrl: string;
+  title: string;
+  category: string;
+  categoryUrl: string;
+  url: string;
+  text: string;
+  date: string;
+  time: string | undefined;
+}
+
+const {
+  thumbnailUrl,
+  title,
+  category,
+  isPortrait = false,
+  categoryUrl = '#',
+  url = '#',
+  text,
+  date,
+  time = undefined,
+} = Astro.props;
+---
+
+<article class={`card ${isPortrait ? 'card--portrait' : ''}`}>
+  <img
+    src={thumbnailUrl}
+    alt={title}
+    class={`card__thumbnail ${isPortrait ? 'card__thumbnail--portrait' : ''}`}
+  />
+
+  <div class={`card__content ${isPortrait ? 'card__content--portrait' : ''}`}>
+    <a href={categoryUrl} class="card__category card__category--primary"
+      >{category}</a
+    >
+    <a href={url} class="card__link">
+      <h5 class="card__heading">{title}</h5>
+    </a>
+    <p class="card__text">{text}</p>
+    <div class="card__datetime">
+      <span class="card__date">🗓️ {moment(date).format('L')}</span>
+      {time && <span class="card__time">🕒 {time}</span>}
+    </div>
+  </div>
+</article>
+
+<style lang="scss" is:global>
+  @use '@styles/mixins' as *;
+
+  .card {
+    background-color: white;
+    display: flex;
+    padding: 0.5rem 1.5rem;
+    border-radius: 1.5rem;
+    transition: all 0.2s;
+    align-items: center;
+
+    @include respond(phone) {
+      padding: 2rem;
+      flex-direction: column;
+    }
+
+    &--portrait {
+      flex-direction: column;
+      padding: 1.5rem;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0.5rem 1rem rgba(#000, 0.15);
+    }
+
+    &__thumbnail {
+      width: 21rem;
+      height: 21rem;
+      border-radius: 1rem;
+      object-fit: cover;
+
+      @include respond(phone) {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 3rem;
+      }
+
+      &--portrait {
+        width: 100%;
+      }
+    }
+
+    &__content {
+      padding: 1rem 1rem 1rem 2.5rem;
+
+      @include respond(phone) {
+        padding: 0;
+      }
+
+      &--portrait {
+        margin-top: 1.5rem;
+        padding: 0rem;
+      }
+    }
+
+    &__category {
+      text-decoration: none;
+      display: inline-block;
+      padding: 0.7rem 1.5rem;
+      background-color: var(--color-light-3);
+      border-radius: 0.8rem;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--color-gray-lighter);
+      margin-bottom: 2rem;
+
+      &--primary {
+        background-color: var(--color-primary);
+        color: white;
+      }
+
+      &--secondary {
+        background-color: var(--color-secondary);
+        color: white;
+      }
+    }
+
+    &__link {
+      text-decoration: none;
+    }
+
+    &__heading {
+      font-size: 2rem;
+      color: var(--color-gray);
+      margin-bottom: 2rem;
+      transition: color 0.2s;
+
+      &:hover {
+        color: var(--color-primary);
+      }
+    }
+
+    &__text {
+      font-size: 1.6rem;
+      color: var(--color-gray-lighter);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    &__datetime {
+      font-size: 1.5rem;
+      color: var(--color-gray-lighter);
+      display: flex;
+      align-items: center;
+
+      & > *:not(:last-child) {
+        margin-right: 2rem;
+      }
+    }
+  }
+
+  .theme-dark {
+    .card {
+      background-color: var(--color-gray);
+
+      &:hover {
+        box-shadow: 0 0.5rem 1rem rgba(#fff, 0.5);
+      }
+
+      &__heading {
+        color: var(--color-light-3);
+
+        &:hover {
+          color: var(--color-primary);
+        }
+      }
+
+      &__text,
+      &__datetime {
+        color: var(--color-light);
+      }
+    }
+  }
+</style>

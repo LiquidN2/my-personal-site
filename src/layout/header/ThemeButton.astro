@@ -1,0 +1,125 @@
+<label class="container" for="toggleBtn">
+  <input type="checkbox" class="checkbox" id="toggleBtn" />
+  <div class="slider slider--round">
+    <span id="icon-dark" class="icon icon--dark">🌙</span>
+    <span id="icon-light" class="icon icon--light">☀️</span>
+  </div>
+</label>
+
+<script>
+  import { setTheme, $theme } from '@store/theme';
+
+  document.addEventListener('astro:page-load', () => {
+    const checkbox = document.querySelector('#toggleBtn') as HTMLInputElement;
+    const iconDark = document.querySelector('#icon-dark') as HTMLSpanElement;
+    const iconLight = document.querySelector('#icon-light') as HTMLSpanElement;
+
+    $theme.subscribe(theme => {
+      if (theme === 'dark') {
+        if (!checkbox.checked) checkbox.checked = true;
+        iconDark.classList.remove('icon--hidden');
+        iconLight.classList.add('icon--hidden');
+        return;
+      }
+
+      if (theme === 'default') {
+        if (checkbox.checked) checkbox.checked = false;
+        iconDark.classList.add('icon--hidden');
+        iconLight.classList.remove('icon--hidden');
+        return;
+      }
+    });
+
+    checkbox.addEventListener('change', () =>
+      setTheme(checkbox.checked ? 'dark' : 'default'),
+    );
+  });
+</script>
+
+<style lang="scss">
+  $transitionDuration: 0.2s;
+
+  .container {
+    position: relative;
+    display: flex;
+    width: 4.5rem;
+    height: 2.6rem;
+  }
+
+  .checkbox {
+    display: none;
+  }
+
+  .slider {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: var(--color-light-3);
+    -webkit-transition: $transitionDuration;
+    transition: $transitionDuration;
+
+    &:before {
+      content: '';
+      height: 1.8rem;
+      width: 1.8rem;
+      margin-left: 0.5rem;
+      background-color: white;
+      -webkit-transition: $transitionDuration;
+      transition: $transitionDuration;
+    }
+
+    &--round {
+      border-radius: 3.4rem;
+
+      &:before {
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .checkbox:checked + .slider {
+    background-color: var(--color-primary);
+  }
+
+  .checkbox:focus + .slider {
+    box-shadow: 0 0 1px var(--color-primary);
+  }
+
+  .checkbox:checked + .slider:before {
+    -webkit-transform: translateX(1.7rem);
+    -ms-transform: translateX(1.7rem);
+    transform: translateX(1.7rem);
+  }
+
+  .label {
+    margin-left: 5rem;
+  }
+
+  .icon {
+    display: inline-block;
+    position: absolute;
+    top: 0.4rem;
+    font-size: 1.2rem;
+    opacity: 1;
+    transition: opacity 0.2s;
+    user-select: none;
+
+    &--light {
+      right: 0.4rem;
+    }
+
+    &--dark {
+      left: 0.4rem;
+    }
+
+    &--hidden {
+      opacity: 0;
+    }
+  }
+</style>

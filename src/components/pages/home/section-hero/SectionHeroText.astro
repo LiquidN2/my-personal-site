@@ -1,0 +1,105 @@
+---
+import Button from '@components/ui/Button.astro';
+---
+
+<div class="hero-text">
+  <h1 class="hero-text__heading hero-text__heading--main">
+    Hi, I&apos;m
+    <span>Hugh Nguyen</span>
+    <br />
+     Full-Stack Developer
+  </h1>
+
+  <h4 class="hero-text__heading hero-text__heading--sub">
+    Experienced in <span>React</span>,
+    <span>NodeJs</span>,
+    <span>PHP</span>
+  </h4>
+
+  <div class="hero-text__btn-group">
+    <Button
+      type="link"
+      url="/contact"
+      className="btn btn--primary"
+      text="Contact Me 👋"
+    />
+    <Button type="link" url="/about" className="btn" text="About Me 🥷" />
+  </div>
+</div>
+
+<style lang="scss" is:global>
+  @use '@styles/mixins' as *;
+
+  .hero-text {
+    width: 50rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include respond(phone) {
+      width: 100%;
+      text-align: center;
+    }
+
+    &__heading {
+      // line-height: 1.6;
+      color: var(--color-gray);
+      margin-bottom: 2rem;
+
+      span {
+        font-weight: 900;
+      }
+
+      &--main {
+        font-size: 4.5rem;
+
+        @include respond(phone) {
+          font-size: 3rem;
+        }
+
+        span {
+          background-image: linear-gradient(
+            to right bottom,
+            var(--color-primary),
+            var(--color-secondary)
+          );
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+        }
+      }
+
+      &--main-light {
+        color: var(--color-light-3);
+      }
+
+      &--sub {
+        font-size: 2.4rem;
+        font-weight: 300;
+      }
+
+      &--sub-light {
+        color: var(--color-light-3);
+      }
+    }
+
+    &__btn-group {
+      padding: 1rem 0;
+
+      & > *:not(:last-child) {
+        margin-right: 2rem;
+      }
+    }
+  }
+
+  .theme-dark {
+    .hero-text {
+      &__heading {
+        &--main,
+        &--sub {
+          color: var(--color-light-3);
+        }
+      }
+    }
+  }
+</style>

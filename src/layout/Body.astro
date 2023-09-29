@@ -1,0 +1,33 @@
+<body>
+  <slot />
+</body>
+
+<script>
+  import { $theme } from '@store/theme';
+
+  document.addEventListener('astro:page-load', () => {
+    const bodyElement = document.querySelector('body') as HTMLElement;
+
+    $theme.subscribe(theme => {
+      if (theme === 'dark') {
+        bodyElement.classList.remove('theme-default');
+        bodyElement.classList.add('theme-dark');
+        return;
+      }
+
+      if (theme === 'default') {
+        bodyElement.classList.remove('theme-dark');
+        bodyElement.classList.add('theme-default');
+        return;
+      }
+    });
+  });
+</script>
+
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+</style>
